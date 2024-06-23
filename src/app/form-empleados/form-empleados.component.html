@@ -1,0 +1,76 @@
+<form
+  #form="ngForm"
+  (ngSubmit)="onSubmit(form)"
+  class="flex flex-col p-3 sm:p-5 rounded bg-gray-700 shadow-md w-full md:w-2/3 lg:w-1/2 xl:w-1/3 sm:mx-auto text-center space-y-4 md:mt-5"
+>
+  <h2 class="text-2xl text-white">Formulario de empleados</h2>
+
+  <div class="flex flex-col md:flex-row md:space-x-4">
+    <div class="flex-1 mb-4 md:mb-0">
+      <h1 class="text-white text-left">Nombre</h1>
+      <input
+        [(ngModel)]="empleado.nombre"
+        name="nombre"
+        id="nombre"
+        class="p-2 rounded bg-gray-800 text-white w-full"
+        placeholder="Juan"
+        required
+      />
+    </div>
+    <div class="flex-1">
+      <h1 class="text-white text-left">Apellido</h1>
+      <input
+        [(ngModel)]="empleado.apellidos"
+        name="apellido"
+        id="apellido"
+        class="p-2 rounded bg-gray-800 text-white w-full"
+        placeholder="Perez"
+        required
+      />
+    </div>
+  </div>
+  <div class="flex flex-col">
+    <h1 class="text-white text-left">Puesto</h1>
+    <input
+      [(ngModel)]="empleado.puesto"
+      name="puesto"
+      id="puesto"
+      class="p-2 rounded bg-gray-800 text-white w-full"
+      placeholder="Desarrollador"
+      required
+    />
+  </div>
+  <div class="flex flex-col">
+    <h1 class="text-white text-left">Teléfono</h1>
+    <input
+      [(ngModel)]="empleado.telefono"
+      name="telefono"
+      id="telefono"
+      class="p-2 rounded bg-gray-800 text-white w-full"
+      placeholder="+34 123 456 789"
+      required
+    />
+  </div>
+  <label class="text-white flex items-center">
+    <input
+      type="checkbox"
+      [(ngModel)]="empleado.remoto"
+      name="remoto"
+      id="remoto"
+      class="mr-2"
+    />
+    Trabaja de forma remota
+  </label>
+
+  <div class="flex justify-center">
+    <button
+      type="submit"
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+    >
+      Agregar Empleado
+    </button>
+  </div>
+  <div *ngIf="formInvalid" class="text-red-500">
+    Todos los campos son obligatorios
+  </div>
+</form>
